@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CoordinatedViewController<ViewModel: CoordinatedViewModelProtocol>: UIViewController, CoordinatedViewProtocol {
+open class  CoordinatedViewController<ViewModel: CoordinatedViewModelProtocol>: UIViewController, CoordinatedViewProtocol {
 
     // MARK: - Private properties
     
@@ -16,28 +16,28 @@ class CoordinatedViewController<ViewModel: CoordinatedViewModelProtocol>: UIView
     
     // MARK: - ViewModel
     
-    var viewModel: ViewModel?
+    public var viewModel: ViewModel?
     
     // MARK: - LifeCycle
     
-    override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         self.isModallyPresented = self.presentingViewController != nil
         self.configureSubviews()
         self.viewModel?.didLoad()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.viewModel?.willAppear()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    open override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.viewModel?.didAppear()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
+    open override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.viewModel?.willDisappear()
         
@@ -46,7 +46,7 @@ class CoordinatedViewController<ViewModel: CoordinatedViewModelProtocol>: UIView
         }
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
+    open override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
         if isModallyPresented {
@@ -54,6 +54,6 @@ class CoordinatedViewController<ViewModel: CoordinatedViewModelProtocol>: UIView
         }
     }
     
-    func configureSubviews() {
+    open func configureSubviews() {
     }
 }

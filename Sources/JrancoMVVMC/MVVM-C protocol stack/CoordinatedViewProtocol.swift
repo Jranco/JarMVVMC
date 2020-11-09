@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol CoordinatedViewProtocol {
+public protocol CoordinatedViewProtocol {
     associatedtype ViewModel: CoordinatedViewModelProtocol
     var viewModel: ViewModel? { get set }
 }

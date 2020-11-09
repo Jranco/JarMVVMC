@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol CoordinatedViewModelProtocol: ViewModelProtocol {
+public protocol CoordinatedViewModelProtocol: ViewModelProtocol {
     var coordinatorDelegate: CoordinatorDelegate? { get }
 }
 

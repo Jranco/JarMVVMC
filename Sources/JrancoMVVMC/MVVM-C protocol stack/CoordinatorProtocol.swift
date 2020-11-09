@@ -9,19 +9,19 @@
 import Foundation
 import UIKit
 
-enum CoordinatorNavigationMode {
+public enum CoordinatorNavigationMode {
     case push
     case modal
     case embed
     case custom
 }
 
-protocol CoordinatorDelegate: class {
+public protocol CoordinatorDelegate: class {
     func didFinish()
     func dismiss()
 }
 
-protocol CoordinatorProtocol: CoordinatorDelegate {
+public protocol CoordinatorProtocol: CoordinatorDelegate {
     var navigationController: UINavigationController? { get set }
     var coordinators: [String: CoordinatorProtocol] { get set }
     var viewController: UIViewController? { get }
@@ -29,7 +29,7 @@ protocol CoordinatorProtocol: CoordinatorDelegate {
     var presenter: CoordinatorProtocol? { get set }
 }
 
-extension CoordinatorProtocol {
+public extension CoordinatorProtocol {
     
     var name: String {
         return String(describing: self)
