@@ -57,7 +57,9 @@ public extension CoordinatorProtocol {
         switch navigationMode {
         case .modal:
             presenter.coordinators[self.name] = self
-            presenter.viewController?.present(UINavigationController(rootViewController: viewController), animated: true, completion: nil)
+            let navigationController = UINavigationController(rootViewController: viewController)
+            self.navigationController = navigationController
+            presenter.viewController?.present(navigationController, animated: true, completion: nil)
         case .push:
             presenter.coordinators[self.name] = self
             self.navigationController = presenter.navigationController
