@@ -1,12 +1,12 @@
 import XCTest
-@testable import JrancoMVVMC
+@testable import JarMVVMC
 
-final class JrancoMVVMCTests: XCTestCase {
+final class JarMVVMCTests: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct
         // results.
-        XCTAssertEqual(JrancoMVVMC().text, "Hello, World!")
+        XCTAssertEqual(JarMVVMC().text, "Hello, World!")
     }
 
     static var allTests = [
