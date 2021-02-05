@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class  CoordinatedViewController<ViewModel: CoordinatedViewModelProtocol>: UIViewController, CoordinatedViewProtocol {
+open class CoordinatedViewController<ViewModel: CoordinatedViewModelProtocol>: UIViewController, CoordinatedViewControllerProtocol {
 
     // MARK: - Private properties
     

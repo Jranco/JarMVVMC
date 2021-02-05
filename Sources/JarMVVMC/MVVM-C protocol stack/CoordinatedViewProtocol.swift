@@ -10,5 +10,5 @@ import Foundation
 
 public protocol CoordinatedViewProtocol {
     associatedtype ViewModel: CoordinatedViewModelProtocol
-    var viewModel: ViewModel? { get set }
+    var viewModel: ViewModel { get set }
 }
