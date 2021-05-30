@@ -11,9 +11,4 @@ import Foundation
 public protocol ViewModelProtocol {
     associatedtype Model: ModelProtocol
     var model: Model { get set }
-    
-    func didLoad()
-    func willAppear()
-    func didAppear()
-    func willDisappear()
 }

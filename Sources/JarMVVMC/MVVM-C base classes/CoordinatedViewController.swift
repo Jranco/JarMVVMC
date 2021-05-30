@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class CoordinatedViewController<ViewModel: CoordinatedViewModelProtocol>: UIViewController, CoordinatedViewControllerProtocol {
+open class CoordinatedViewController<ViewModel: CoordinatedViewModelProtocol>: UIViewController, CoordinatedViewControllerProtocol where ViewModel: ViewControllerLifeCycleProtocol {
 
     // MARK: - Private properties
     
@@ -24,22 +24,22 @@ open class CoordinatedViewController<ViewModel: CoordinatedViewModelProtocol>: U
         super.viewDidLoad()
         self.isModallyPresented = self.presentingViewController != nil
         self.configureSubviews()
-        self.viewModel?.didLoad()
+        self.viewModel?.viewDidLoad()
     }
     
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.viewModel?.willAppear()
+        self.viewModel?.viewWillAppear()
     }
     
     open override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.viewModel?.didAppear()
+        self.viewModel?.viewDidAppear()
     }
     
     open override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.viewModel?.willDisappear()
+        self.viewModel?.viewWillDisappear()
         
         if self.isMovingFromParent {
             self.viewModel?.willBeRemovedFromParent()

@@ -6,7 +6,8 @@ import PackageDescription
 let package = Package(
     name: "JarMVVMC",
     platforms: [
-        .iOS(.v14)
+        .iOS(.v14), .macOS(.v10_10)
+        
     ],
     products: [
         .library(

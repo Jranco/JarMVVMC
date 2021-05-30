@@ -8,7 +8,7 @@
 import UIKit
 import SwiftUI
 
-public class CoordinatedHostingController<ContentView: View>: UIHostingController<ContentView>, CoordinatedViewControllerProtocol where ContentView: CoordinatedViewProtocol {
+public class CoordinatedHostingController<ContentView: View>: UIHostingController<ContentView>, CoordinatedViewControllerProtocol where ContentView: CoordinatedViewProtocol, ContentView.ViewModel: ViewControllerLifeCycleProtocol {
  
     // MARK: - Private properties
     
@@ -32,17 +32,17 @@ public class CoordinatedHostingController<ContentView: View>: UIHostingControlle
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.isModallyPresented = self.presentingViewController != nil
-        self.viewModel?.willAppear()
+        self.viewModel?.viewWillAppear()
     }
     
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.viewModel?.didAppear()
+        self.viewModel?.viewDidAppear()
     }
     
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.viewModel?.willDisappear()
+        self.viewModel?.viewWillDisappear()
         
         if self.isMovingFromParent {
             self.viewModel?.willBeRemovedFromParent()
